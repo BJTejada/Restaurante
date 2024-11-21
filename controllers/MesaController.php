@@ -19,30 +19,69 @@ class MesaController{
     public function editarMesa($idmesa,$estadoMesa){
         return $this->mesa->actualizarMesa($idmesa,$estadoMesa);
     }
+    public function modificarMesa($idmesa,$numero,$zona,$capacidad){
+        return $this->mesa->modificarMesa($idmesa,$numero,$zona,$capacidad);
+    }
+    public function agregarMesa($numero,$zona,$capacidad){
+        return $this->mesa->crearMesa($numero,$zona,$capacidad);
+    }
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'update') {
-    $idmesa = $_POST['idmesa'];
-    $estadoMesa = $_POST['estadomesa'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['action']) && $_POST['action'] === 'update') {
+        $idmesa = $_POST['idmesa'];
+        $estadoMesa = $_POST['estadomesa'];
 
-    $database = new Database();
-    $db = $database->getConnection();
+        $database = new Database();
+        $db = $database->getConnection();
 
-    $mesaController = new MesaController($db);
+        $mesaController = new MesaController($db);
 
-    if ($mesaController->editarMesa($idmesa,$estadoMesa)) {
+        if ($mesaController->editarMesa($idmesa, $estadoMesa)) {
+            $facturaController = new FacturasController($db);
+            $estadoFactura = 'pendiente';
 
-        $facturaController = new FacturasController($db);
-        $estadoFactura = 'pendiente';
+            if ($facturaController->registrarFacturaPendiente($idmesa, $estadoFactura)) {
+                header('Location: /restaurante/views/Mesas.php');
+                exit();
+            } else {
+                echo "Error al actualizar la mesa";
+            }
+        }
+    } elseif(isset($_POST['action']) && $_POST['action'] === 'updatemesa'){
+        $idmesa = $_POST['idmesau'];
+        $numero = $_POST['numerou'];
+        $zona = $_POST['zonau'];
+        $capacidad = $_POST['capacidadu'];
+        $database = new Database();
+        $db = $database->getConnection();
 
-        if ($facturaController->registrarFacturaPendiente($idmesa, $estadoFactura)) {
-            header('Location: /restaurante/views/Mesas.php');
-            exit();  
-        } else {
-            echo "Error al actualizar el mesa";
+        $mesaController = new MesaController($db);
+
+        if ($mesaController->modificarMesa($idmesa,$numero,$zona,$capacidad)) {
+            header('Location: /restaurante/views/RegistroMesas.php');
+            exit();
+        } else{
+            echo json_encode('no modifico mesa');
+        }
+    }elseif(isset($_POST['action']) && $_POST['action'] === 'register'){
+        $numero = $_POST['numero'];
+        $zona = $_POST['zona'];
+        $capacidad = $_POST['capacidad'];
+        $database = new Database();
+        $db = $database->getConnection();
+
+        $mesaController = new MesaController($db);
+
+        if ($mesaController->agregarMesa($numero,$zona,$capacidad)) {
+            header('Location: /restaurante/views/RegistroMesas.php');
+            exit();
+        } else{
+            echo json_encode('no modifico mesa');
         }
     }
-}else{
+}
+else{
     
               
 }

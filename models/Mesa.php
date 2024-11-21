@@ -33,9 +33,56 @@ class Mesa{
             }
         } catch (PDOException $e) {
             // Si ocurre un error al ejecutar la consulta
-            echo "Error al editar cliente: " . $e->getMessage();
+            echo "Error al editar mesa: " . $e->getMessage();
             return false;
         }
-    }  
+    }
+    public function modificarMesa($idmesa,$numero,$zona,$capacidad){
+        try {
+            $query = "UPDATE mesa SET 
+                            numero = :numero,
+                            zona = :zona,
+                            capacidad = :capacidad
+                        WHERE idmesa = :idmesa;";
+            $stmt = $this->conn->prepare($query);
+    
+            $stmt->bindParam(':numero', $numero, PDO::PARAM_STR);
+            $stmt->bindParam(':zona', $zona, PDO::PARAM_STR);
+            $stmt->bindParam(':capacidad', $capacidad, PDO::PARAM_INT);
+            $stmt->bindParam(':idmesa', $idmesa, PDO::PARAM_INT);
+            
+            if ($stmt->execute()){
+                return true;
+            } else{
+                return false;
+            }
+        } catch (PDOException $e) {
+            // Si ocurre un error al ejecutar la consulta
+            echo "Error al editar mesa: " . $e->getMessage();
+            return false;
+        }
+    } 
+    public function crearMesa($numero,$zona,$capacidad){
+        try {
+            $estadoMesa = 'disponible';
+            $query = "INSERT INTO MESA(numero,zona,capacidad,estadoMesa)
+                        values(:numero,:zona,:capacidad,:estadoMesa)";
+            $stmt = $this->conn->prepare($query);
+    
+            $stmt->bindParam(':numero', $numero, PDO::PARAM_STR);
+            $stmt->bindParam(':zona', $zona, PDO::PARAM_STR);
+            $stmt->bindParam(':capacidad', $capacidad, PDO::PARAM_STR);
+            $stmt->bindParam(':estadoMesa', $estadoMesa, PDO::PARAM_STR);
+            if ($stmt->execute()){
+                return true;
+            } else{
+                return false;
+            }
+        } catch (PDOException $e) {
+            // Si ocurre un error al ejecutar la consulta
+            echo "Error al crear mesa: " . $e->getMessage();
+            return false;
+        }
+    } 
 }
 ?>

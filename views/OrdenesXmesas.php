@@ -26,7 +26,8 @@ $clientes = $clienteController->listarClientes($db);
               echo '<li><a href ="RegistroCliente.php" data-section="clientes" id="idpageclientes">CLIENTES</a></li>';
               echo '<li><a href ="RegistroEmpleado.php">USUARIOS</a></li>';
               echo '<li><a href ="Reportes.php" data-section="reportes" id="idpagereportes">REPORTES</a></li>';
-              echo '<li><a href ="Menu.php" data-section="menu" id="idpagemenu">PLATOS</a></li>';  
+              echo '<li><a href ="Menu.php" data-section="menu" id="idpagemenu">PLATOS</a></li>'; 
+              echo '<li><a href ="RegistroMesas.php" data-section="mesas" id="idpagemesas">CRUD MESAS</a></li>'; 
             }elseif($rol == 2){
                 echo '<li><a href ="Mesas.php" data-section="mesas" id="idpagelientes" class="active">MESAS</a></li>';
                 echo '<li><a href ="RegistroCliente.php" data-section="clientes" id="idpageclientes">CLIENTES</a></li>';
@@ -62,7 +63,7 @@ $clientes = $clienteController->listarClientes($db);
     <div class="div2om" >
     <form action="" class="detalle-orden-form" style="margin-left: 45px; background-color: #6b5abb; padding: 10px; border-radius: 8px;color:white;">
       ✏️ EDITANDO MESA # <?php echo $factura['numero']?>...
-      <div class="form-grid" style="margin-top: ;">
+      <div class="form-grid" style="margin-top: 0px;">
         <div class="form-group">
             <label for="nMesa" style="color: white;"># Mesa</label>
             <input type="text" id="nMesa" name="nMesa" class="input-text" value="<?php echo $factura['numero']?>" readonly>

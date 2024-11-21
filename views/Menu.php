@@ -22,6 +22,7 @@ function mostrarNav($rol){
           echo '<li><a href ="RegistroEmpleado.php">USUARIOS</a></li>';
           echo '<li><a href ="Reportes.php" data-section="reportes" id="idpagereportes">REPORTES</a></li>';  
           echo '<li><a href ="Menu.php" data-section="menu" id="idpagemenu" class="active">PLATOS</a></li>';
+          echo '<li><a href ="RegistroMesas.php" data-section="mesas" id="idpagemesas">CRUD MESAS</a></li>';
         }elseif($rol == 2){
             echo '<li><a href ="Mesas.php" data-section="mesas" id="idpagelientes" >MESAS</a></li>';
             echo '<li><a href ="RegistroCliente.php" data-section="clientes" id="idpageclientes">CLIENTES</a></li>';

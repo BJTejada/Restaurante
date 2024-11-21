@@ -25,6 +25,7 @@ $db = $database->getConnection();
               echo '<li><a href ="RegistroEmpleado.php">USUARIOS</a></li>';
               echo '<li><a href ="Reportes.php" data-section="reportes" id="idpagereportes">REPORTES</a></li>';
               echo '<li><a href ="Menu.php" data-section="menu" id="idpagemenu">PLATOS</a></li>';  
+              echo '<li><a href ="RegistroMesas.php" data-section="mesas" id="idpagemesas">CRUD MESAS</a></li>';
             }elseif($rol == 2){
                 echo '<li><a href ="Mesas.php" data-section="mesas" id="idpagelientes" class="active">MESAS</a></li>';
                 echo '<li><a href ="RegistroCliente.php" data-section="clientes" id="idpageclientes">CLIENTES</a></li>';
@@ -76,6 +77,8 @@ $db = $database->getConnection();
                 <?php if ($mesa['estadoMesa'] == 'disponible'): ?>
                     <form action="../controllers/MesaController.php" method="POST">
                         <input type="hidden" name="action" value="update">
+                        <input type="hidden" name="empleado" value="<?php echo $_SESSION['usuario'];?>">
+                        <input type="hidden" name="idempleado" value="<?php echo $_SESSION['idempleado'];?>">
                         <input type="hidden" name="idmesa" value="<?php echo $mesa['idmesa'] ?>">
                         <input type="hidden" name="estadomesa" value="ocupado">
                         <button class="btnSelected" style="font-size:16px;">
