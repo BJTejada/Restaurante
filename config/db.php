@@ -1,7 +1,7 @@
 <?php
 class Database {
     //private $host = "restaurante.cvgm4iqmqjrj.us-east-1.rds.amazonaws.com";
-    private $host = "localhost";
+    private $host = "restaurante.cvgm4iqmqjrj.us-east-1.rds.amazonaws.com";
     private $db_name = "restaurante";
     private $username = "root"; 
     private $password = "tejada987";

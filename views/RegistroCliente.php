@@ -56,14 +56,14 @@ $db = $database->getConnection();
             <form id="formSCliente" >BUSCAR UN CLIENTE
                 <input type="text" name="scliente" id="idscliente" placeholder="buscar cliente">
             </form>
-            <div style="min-height:450px; max-height: 450px; overflow-y: auto;">
+            <div style="min-height:600px; max-height: 600px; overflow-y: auto;">
                 <table border="1" id="IdTableClient" style="width: 100%;">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
-                        <th>DUI</th>
+                        <th>CORREO</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -103,7 +103,7 @@ $db = $database->getConnection();
         <div id="editarModal" class="modal-overlay">
                 <div class="modal-content">
                     <button class="close-btn" onclick="hideModal()">Cerrar</button>
-                    <form id="formEditarEmpleado" action="../controllers/EmpleadoController.php" method="POST">
+                    <form id="formEditarEmpleado" action="../controllers/ClienteController.php" method="POST">
                         <input type="hidden" name="action" value="updatecliente">
                         <input type="hidden" id="idclienteu" name="idclienteu">
                         <label for="nombre">Nombre:</label>
@@ -111,7 +111,7 @@ $db = $database->getConnection();
                         <label for="apellido" >Apellido:</label>
                         <input type="text" id="apellidou" name="apellidou" placeholder="Apellido" required>
                         <label for="correo" >Correo:</label>
-                        <input type="text" id="correou" placeholder="Correo">
+                        <input type="text" id="correou" name="correou" placeholder="Correo">
                         <button type="submit">Guardar cambios</button>
                     </form>
                 </div>

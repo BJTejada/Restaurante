@@ -10,9 +10,9 @@ if (isset($_GET['idfactura'])) {
     $database = new Database();
     $conn = $database->getConnection();
 
-    $sql_factura = "SELECT f.idfactura,CONCAT(nombres, ' ', apellidos) as cliente,m.numero,f.fecha,f.total 
+    $sql_factura = "SELECT f.idfactura,CONCAT(c.nombres, ' ',c.apellidos) as cliente,m.numero,f.fecha,f.total 
 	                    from factura f join cliente c on f.idcliente = c.idcliente
-                            join mesa m on f.idmesa = m.numero where idfactura = :idfactura";
+                            join mesa m on f.idmesa = m.idmesa where f.idfactura = :idfactura";
     $stmt = $conn->prepare($sql_factura);
     $stmt->bindParam(':idfactura', $idfactura);
     $stmt->execute();

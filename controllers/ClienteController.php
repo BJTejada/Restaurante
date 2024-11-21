@@ -45,12 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
     // Intentamos registrar el cliente
     if ($controller->registrarCliente($nombres, $apellidos, $dui)) {
-        echo "Cliente registrado correctamente";
+        header('Location: /restaurante/views/RegistroCliente.php');
+        exit();
     } else {
         echo "Error al registrar el cliente";
     }
 }
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'update') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'updatecliente') {
     $nombres = $_POST['nombreu'];
     $apellidos = $_POST['apellidou'];
     $correo = $_POST['correou'];
@@ -64,8 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $clienteController = new ClienteController($db);
 
     // Intentar actualizar el cliente
-    if ($clienteController->editarCliente($nombres, $apellidos, $correo,$id_cliente )) {
-        echo "Cliente actualizado correctamente";
+    if ($clienteController->editarCliente($nombres, $apellidos, $correo,$idcliente )) {
+        header('Location: /restaurante/views/RegistroCliente.php');
+        exit();
     } else {
         echo "Error al actualizar el cliente";
     }
@@ -88,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         echo "Error al eliminar el cliente";
     }
 }
+
 ?>
 
 

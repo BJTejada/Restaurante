@@ -65,7 +65,7 @@ class Mesa{
     public function crearMesa($numero,$zona,$capacidad){
         try {
             $estadoMesa = 'disponible';
-            $query = "INSERT INTO MESA(numero,zona,capacidad,estadoMesa)
+            $query = "INSERT INTO mesa(numero,zona,capacidad,estadoMesa)
                         values(:numero,:zona,:capacidad,:estadoMesa)";
             $stmt = $this->conn->prepare($query);
     
