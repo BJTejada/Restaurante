@@ -1,0 +1,401 @@
+
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 5 / 4; }
+    .div2 { grid-area: 5 / 1 / 9 / 4; 
+      overflow-y: auto;
+      max-height: 400px;
+      scrollbar-color: #88ff88 #585a5827;}
+    .div3 { grid-area: 1 / 4 / 9 / 7; }
+
+
+    .buttonLO {
+      background-color: red; /* Color de fondo rojo */
+      color:white;        /* Hereda el color de la fuente del elemento padre */
+      border: none;         /* Sin borde */
+      border-radius: 10px;  /* Esquinas redondeadas */
+      padding: 10px 20px;   /* Espaciado interno */
+      font-size: inherit;    /* Hereda el tamaño de fuente */
+      cursor: pointer;       /* Cambia el cursor al pasar sobre el botón */
+      transition: background-color 0.3s; /* Transición suave al cambiar color */
+    }
+      .parentom {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        }
+        
+        .div1om { grid-area: 1 / 1 / 2 / 7; }
+        .div2om { grid-area: 2 / 1 / 5 / 4; }
+        .div3om { grid-area: 5 / 1 / 9 / 4; overflow-y: auto;
+          max-height: 300px;
+          scrollbar-color: #88ff88 #585a5827;}
+        .div4om { grid-area: 2 / 4 / 9 / 7; }
+    .ocultar{
+        display: none;
+      }
+      /* Estilos básicos para el modal */
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        overflow: auto;
+        background-color: rgba(6, 6, 6, 0.582);
+      }
+      
+      .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 5px;
+        width: 70%;
+        height: auto;
+        display: grid;  
+        grid-template-columns: 1fr;  
+      }
+      
+      .disponible {
+        background-color: green; 
+        color: white;
+      }
+      
+      .no-disponible {
+        background-color: rgba(194, 2, 2, 0.74); 
+        color: rgb(255, 255, 255);
+      }
+      .pendiente {
+        background-color: green; 
+        color: white;
+      }
+      .procesando {
+        background-color: rgb(209, 253, 14); 
+        color: rgb(0, 0, 0);
+      }
+      .finalizada {
+        background-color: rgb(128, 0, 0); 
+        color: white;
+      }
+      .estado-pendiente {
+        background-color: orange;
+        color: black;
+    }
+    
+    .estado-procesando {
+        background-color: blue;
+        color: white;
+    }
+    
+      .detalle-orden-form {
+        border: 3px solid #ccc;
+        padding: 5px;
+        max-width: 500px;
+        margin: 5px;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns of equal width */
+        gap: 5px; /* Space between items */
+    }
+    
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .input-text, .input-date {
+        padding: 5px;
+        font-size: 16px;
+        width: 80%;
+    }
+    
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+    
+    .btn {
+        background-color: #068f0a;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        flex: 1;
+        margin-right: 5px;
+    }
+    
+    .btn:last-child {
+        margin-right: 0;
+    }
+    
+/* Contenedor principal para las tarjetas */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Cuadrícula responsiva */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Estilo individual de cada tarjeta */
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en la tarjeta */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Encabezado de la tarjeta */
+.card-header {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+  padding: 10px 0;
+}
+
+/* Fila dentro de cada tarjeta (simulando una fila de la tabla) */
+.card-row {
+  margin-bottom: 8px;
+}
+
+.card-row strong {
+  font-weight: 600;
+  color: #333;
+}
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: left;
+}
+
+table th {
+  background-color: #268cbb;
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+table tr:hover {
+  background-color: #ddd;
+}
+
+.btn-important {
+  background-color: #02008d; /* Color de fondo */
+  color: white; /* Color de texto */
+  border: 2px solid rgb(206, 91, 14); /* Borde importante */
+  padding: 10px 15px; /* Espaciado interno */
+  font-weight: bold; /* Hace el texto un poco más llamativo */
+  cursor: pointer; /* Cambia el cursor al pasar por el botón */
+  transition: background-color 0.5s, border-color 0.5s; /* Suaviza el cambio de color */
+}
+.fondo {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+        circle farthest-side at 0% 50%,
+        #282828 23.5%,
+        rgba(255, 170, 0, 0) 0
+      )
+      21px 30px,
+    radial-gradient(
+        circle farthest-side at 0% 50%,
+        #2c3539 24%,
+        rgba(240, 166, 17, 0) 0
+      )
+      19px 30px,
+    linear-gradient(
+        #282828 14%,
+        rgba(240, 166, 17, 0) 0,
+        rgba(240, 166, 17, 0) 85%,
+        #282828 0
+      )
+      0 0,
+    linear-gradient(
+        150deg,
+        #282828 24%,
+        #2c3539 0,
+        #2c3539 26%,
+        rgba(240, 166, 17, 0) 0,
+        rgba(240, 166, 17, 0) 74%,
+        #2c3539 0,
+        #2c3539 76%,
+        #282828 0
+      )
+      0 0,
+    linear-gradient(
+        30deg,
+        #282828 24%,
+        #2c3539 0,
+        #2c3539 26%,
+        rgba(240, 166, 17, 0) 0,
+        rgba(240, 166, 17, 0) 74%,
+        #2c3539 0,
+        #2c3539 76%,
+        #282828 0
+      )
+      0 0,
+    linear-gradient(90deg, #2c3539 2%, #282828 0, #282828 98%, #2c3539 0%) 0 0
+      #282828;
+  background-size: 40px 60px;
+}
+
+.detalle-orden-form {
+  margin-left: 50px;
+  background-color: #268cbb;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+.input-text, .input-date {
+  width: 80%;
+  padding: 5px;
+  margin-top: 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.btn {
+  background-color: #237c26;
+  color: white;
+  width: 50%;
+  border: 2px solid rgb(93, 236, 255);
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-important {
+  background-color: #22208f;
+  color: white;
+  width: 48%;
+  border: 2px solid rgb(93, 236, 255);
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+  /*NAVBAR*/
+  .navbar a {
+    color: #ffffff;
+    font-weight: 600;
+    padding: 25px;
+    padding-bottom: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #413579;
+  }
+  
+  li {
+    float: left;
+  }
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  
+  li a:hover {
+    background-color: #670794;
+    border-radius: 5px;
+  }
+
+/* Estilo para el enlace activo */
+a.active {
+  text-decoration: none; /* Agrega subrayado */
+  background-color: #670794;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+.disabled{
+  display: none;
+}
+/* Archivo: styles.css */
+
+
+.parentL {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  
+  .divL1 { grid-area: 1 / 1 / 2 / 7; }
+  .divL2 { grid-area: 2 / 1 / 6 / 3; }
+  .divL3 { grid-area: 2 / 3 / 6 / 5; }
+  .divL4 { grid-area: 2 / 5 / 6 / 7; }
+
+  .parentc {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .divc1 { grid-area: 1 / 1 / 2 / 7; }
+    .divc2 { grid-area: 2 / 1 / 7 / 4; }
+    .divc3 { grid-area: 2 / 4 / 7 / 7; }
+
+
